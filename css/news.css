@@ -1,0 +1,25 @@
+.news-ul{}
+.news-ul li {
+    float: left;
+    margin: 20px 0;
+}
+.news-ul .info {
+    margin-top: 10px;
+}
+.news-ul .info img {float: left}
+.news-ul .info span {
+    float: left;
+    width: 439px;
+    padding-left: 10px;
+    line-height: 25px;
+    text-overflow: ellipsis;
+    font-size: 20px;
+}
+.news-ul .info span em {
+    display: block;
+    font-style: normal;
+    color: #747373;
+}
+.news-ul li:nth-child(2n) {
+    margin-left: 108px;
+}

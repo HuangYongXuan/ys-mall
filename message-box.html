@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Message-Box</title>
+
+    <style>
+        #message-box {
+            position: absolute;
+            right: 0;
+            top: 0;
+            overflow: hidden;
+        }
+
+        .message-box {
+            width: 300px;
+            font-size: 12px;
+            position: relative;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 10px 10px 10px 100%;
+            transition: all 500ms;
+        }
+
+        .message-box-success {
+            border-left: 5px solid #24cf0b;
+        }
+
+        .message-box-success:before {
+            content: '✔';
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: center;
+            position: absolute;
+            color: #24cf0b;
+            border: 1px solid #24cf0b;
+            border-radius: 50%;
+        }
+
+        .message-box-header {
+            text-align: right;
+        }
+
+        .message-box-header a {
+            cursor: pointer;
+        }
+
+        .message-box-content {
+            padding-top: 5px;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <button data-type="success" data-message="66666666666" data-target="ms-box" data-timeout="0">Open Message Box</button>
+    <button data-type="success" data-message="sdsadewfd sadasbkijdjk sadjawdbjqwjfh sdjasdhuiajk sadiasdkjasjd sadjkasdhjas asdkjlasdjklsa sdjaskjd" data-target="ms-box" data-timeout="5000">Open Message Box2</button>
+</div>
+
+<script>
+	(function () {
+		document.addEventListener('DOMContentLoaded', onLoad);
+	})();
+
+	function openMessageBox (e) {
+		var type = e.target.getAttribute('data-type') || 'error';
+		var message = e.target.getAttribute('data-message') || 'null';
+		var timeout = parseInt(e.target.getAttribute('data-timeout')) || 0;
+		messageBox({type: type, content: message, timeout: timeout});
+	}
+
+	function onLoad () {
+		var buttons = document.querySelectorAll('[data-target="ms-box"]');
+		buttons.forEach(function (item) {
+			item.onclick = function (event) {
+				openMessageBox(event);
+			};
+		});
+	}
+
+	function messageBox (params) {
+		var box = document.getElementById('message-box');
+		if (box === null) {
+			var div = document.createElement('div');
+			div.setAttribute('id', 'message-box');
+			document.body.appendChild(div);
+			box = div;
+			div.onclick = function (e) {
+				closeBox(e);
+			};
+		}
+
+		var win = document.createElement('div');
+		win.className = 'message-box message-box-' + params.type;
+		win.innerHTML = '<div class="message-box-header">'
+				+ '<a class="message-box-close">&times;</a>'
+				+ '</div>'
+				+ '<div class="message-box-content">' +
+				params.content +
+				'</div>';
+		box.appendChild(win);
+		setTimeout(function () {
+			win.style.marginLeft = '10px';
+		}, 100);
+
+		if (params.timeout > 0) {
+			setTimeout(function () {
+				if (win !== null) {
+					removeBox(win)
+				}
+			}, params.timeout);
+		}
+	}
+
+	function closeBox (e) {
+		var el = e.target;
+		if (el.nodeName === 'A') {
+			var message = e.srcElement.parentElement.parentElement;
+			removeBox(message)
+		}
+	}
+
+	function removeBox (el) {
+		el.style.marginLeft = '100%';
+		setTimeout(function () {
+			el.remove();
+		}, 500)
+	}
+</script>
+</body>
+</html>

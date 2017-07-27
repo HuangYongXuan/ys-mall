@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/product.css">
+</head>
+<body>
+<div class="header">
+    <div class="top-nav center clearfix">
+        <img src="img/logo.jpg" alt="">
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="about.html">关于我们</a></li>
+            <li><a href="product.html" class="active">产品展示</a></li>
+            <li><a href="news.html">最新资讯</a></li>
+            <li><a href="contact.html">联系我们</a></li>
+            <li><a href="joinus.html">加入我们</a></li>
+        </ul>
+    </div>
+    <div class="banner">
+        <img src="img/P_02.jpg"></div>
+</div>
+<div class="body body-background-image">
+    <div class="center">
+        <h2>产 品 展 示</h2>
+        <h3>Products</h3>
+        <div class="content">
+            <p class="clearfix" id="bor">
+                <a href="#" data-index="0">产品分类one</a>
+                <a href="#" data-index="1">产品分类TWO</a>
+                <a href="#" data-index="2" class="active">产品分类THREE</a>
+                <a href="#" data-index="3">产品分类FORE</a>
+            </p>
+            <div class="hidden">1</div>
+            <div class="hidden">2</div>
+            <div class="show">
+                <ul class="clearfix">
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                    <li><a href="#"><img src="img/P_05.jpg" alt=""></a>
+                        <p>幕刃西装</p></li>
+                </ul>
+                <div class="pagination">
+                    <ul class="clearfix">
+                        <li><a href="#" class="active">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">下一页</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="hidden">3</div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="center clearfix">
+        <div class="info">
+            <img src="img/Home_31.jpg">
+            <p class="link-us">联系我们</p>
+            <p>地址：中国（上海）自由贸易试验区加太路29号2号楼西部404-A06室</p>
+            <p>版权所有：上海逸衫袖电子商务有限公司 沪ICP备 15044285号-1</p>
+        </div>
+        <div class="images clearfix">
+            <img src="img/Home_33.jpg">
+            <img src="img/Home_35.jpg">
+        </div>
+    </div>
+</div>
+<script>
+	var bor;
+	(function () {
+		bor = document.getElementById('bor');
+		document.addEventListener('DOMContentLoaded', onLoad);
+	})();
+
+	function onLoad () {
+		bor.addEventListener('click', click);
+	}
+
+	function click (e) {
+		var target = e.target;
+		removeActive();
+		target.className = 'active';
+		var index = target.getAttribute('data-index');
+		activeDiv(index);
+		e.preventDefault();
+	}
+
+	function removeActive () {
+		for (var i = 0; i < bor.childElementCount; i++) {
+			bor.children[i].className = '';
+		}
+	}
+
+	function activeDiv (index) {
+		var list = document.querySelectorAll('.content > div');
+		for (var i = 0; i < list.length; i ++) {
+			list[i].className = 'hidden';
+        }
+        list[index].className = 'show';
+	}
+</script>
+</body>
+</html>

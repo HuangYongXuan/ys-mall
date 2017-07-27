@@ -1,0 +1,114 @@
+.body > div > div > p {
+    margin-top: 25px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.body ul {
+    margin-top: 40px
+}
+
+.about li {
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+    margin-top: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #dcdcdc;
+    background-color: #dcdcdc;
+    padding: 0 20px;
+    color: white;
+}
+
+.body > div {
+    padding-top: 40px;
+}
+
+.about-ul img {
+    display: inline-block;
+}
+.about-ul p {
+    font-size: 18px;
+    line-height: 50px;
+}
+
+.product {
+    background-color: #fcfcfc;
+}
+
+.product-ul {
+}
+
+.product-ul li img {
+    width: 100%;
+}
+
+.product-ul li {
+    position: relative;
+    float: left;
+    width: 240px;
+    margin-right: 46px;
+}
+
+.news-ul li p,
+.product-ul p {
+    height: 65px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 65px;
+    color: white;
+    width: 100%;
+    background: url("../img/2.png");
+}
+
+.news {
+    padding-bottom: 30px;
+}
+
+.news-ul > li > a {
+    display: block;
+    position: relative;
+}
+
+.news-ul > li {
+    width: 351px;
+    float: left;
+    margin-right: 23px;
+}
+
+.news-ul img {
+    width: 100%;
+}
+
+.news a.button {
+    border-color: black;
+    background-color: white;
+    color: #222222;
+}
+
+.dis > img {
+    width: 41px;
+    display: block;
+    float: left;
+}
+.dis {
+    margin-top: 10px;
+}
+.dis > span {
+    text-overflow: ellipsis;
+    line-height: 20px;
+}
+
+.dis em {
+    display: block;
+    font-style: normal;
+    color: #747373;
+}

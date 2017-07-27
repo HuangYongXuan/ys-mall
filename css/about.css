@@ -1,0 +1,26 @@
+.about-ul{
+    padding: 30px 25px;
+}
+.about-ul >li {
+    display: flex;
+}
+
+.about-ul > li:nth-child(2n) {
+    margin-top: 100px;
+}
+
+.about-ul >li div {
+    padding-left: 10px;
+    flex: 1;
+    float: left;
+}
+
+.about-ul > li .info {
+    font-size: 24px;
+    text-indent: 2em;
+    line-height: 40px;
+}
+
+.about-ul .info > p:first-child {
+    text-indent: 0;
+}

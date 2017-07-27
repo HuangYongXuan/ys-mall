@@ -1,0 +1,50 @@
+.content {
+
+}
+
+.content > p {
+    background-color: #292929;
+    line-height: 30px;
+    margin-top: 30px;
+}
+
+.content > p > a {
+    cursor: pointer;
+    display: inline-block;
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+.content > p > a:hover,
+.content > p > a.active {
+    background-color: #d2b593;
+    color: #000000;
+}
+
+
+.content > div > ul {
+    margin: 0 15px;
+}
+
+.content > div > ul li {
+    width: 247px;
+    position: relative;
+    padding: 10px;
+    background-color: #eeeeee;
+    margin: 30px 0; float: left;
+}
+
+.content > div > ul p {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    width: 247px;
+    color: white;
+    text-align: center;
+    height: 65px;
+    line-height: 65px;
+    background: url("../img/2.png");
+}

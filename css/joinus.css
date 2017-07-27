@@ -1,0 +1,49 @@
+.join-ul {
+    padding-bottom: 30px;
+}
+
+.join-ul .header .big {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 0;
+}
+
+.join-ul .header > span {
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+.join-ul .header {
+    line-height: 50px;
+    height: 50px;
+    border-bottom: 1px solid #000000;
+    padding-left: 30px;
+    position: relative;
+}
+
+.join-ul .header:before {
+    content: '';
+    width: 5px;
+    height: 24px;
+    background-color: black;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.join-ul .body {
+    padding-left: 40px;
+}
+
+.join-ul .body h6 {
+    line-height: 30px;
+    font-weight: inherit;
+}
+
+.join-ul .body p {
+    line-height: 20px;
+}
+
+.join-ul .body h5 {
+    margin: 20px 0;
+}
