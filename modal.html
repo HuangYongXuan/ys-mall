@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal</title>
+
+    <style>
+        .modal {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            position: fixed;
+            z-index: 5;
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            min-width: 500px;
+            background-color: white;
+            border-radius: 5px;
+            position: relative;
+            transition: all 500ms;
+            margin-top: -100%;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #ccc;
+            display: flex;
+        }
+
+        .modal-header > a {
+            line-height: 30px;
+            padding-right: 10px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .modal-header > h2 {
+            flex: 1;
+            margin: 0;
+            padding-left: 10px;
+            font-size: 15px;
+            line-height: 30px;
+        }
+
+        .modal-body {
+            padding: 10px;
+            line-height: 25px;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #ccc;
+            padding: 10px;
+            text-align: right;
+        }
+
+        .modal-footer button {
+            margin-left: 15px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            line-height: 30px;
+            padding: 0 20px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn:focus,
+        .btn:active {
+            box-shadow: 0 0 2px 2px #0c52cf;
+        }
+
+        .btn-cancel {
+            background-color: brown;
+            color: white;
+        }
+
+        .btn-confirm {
+            background-color: #24cf0b;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<button id="btn1">Modal</button>
+
+<script>
+	(function () {
+		document.getElementById('btn1').addEventListener('click', onClick);
+	})();
+
+	function onClick () {
+		createModal({
+            title: 'Modal Title',
+            content: '<input>',
+			confirmCallback: 'confirmCallback()'
+        });
+	}
+
+	function confirmCallback () {
+        console.log(this);
+	}
+
+	function createModal (params) {
+		var modal = document.createElement('div');
+		modal.className = 'modal';
+		modal.setAttribute('id', 'modal-box');
+		document.body.appendChild(modal);
+		var confirm = params.confirm || 'confirm';
+		var cancel = params.cancel || 'cancel';
+		modal.innerHTML = '<div class="modal-content">' +
+				'<div class="modal-header">' +
+				'<h2>' + params.title + '</h2>' +
+				'<a onclick="closeModal()">&times;</a>' +
+				'</div>' +
+				'<div class="modal-body">' +
+				'<p>' + params.content + '</p>' +
+				'</div>' +
+				'<div class="modal-footer">' +
+				'<button class="btn btn-confirm" onclick="' + params.confirmCallback +'">' + confirm + '</button>' +
+				'<button class="btn btn-cancel" onclick="closeModal()">' + cancel + '</button>' +
+				'</div>' +
+				'</div>';
+        setTimeout(function () {
+			modal.children[0].style.marginTop = 0;
+		}, 100);
+	}
+
+	function closeModal () {
+		var box = document.getElementById('modal-box');
+		box.children[0].style.marginTop = '-100%';
+
+		setTimeout(function () {
+			box.remove();
+		}, 500)
+	}
+</script>
+</body>
+</html>

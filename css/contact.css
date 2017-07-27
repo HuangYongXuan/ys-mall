@@ -17,14 +17,13 @@
 
 .contact-ul .info p {
     font-size: 18px;
-    text-indent: 2em;
     vertical-align: middle;
     line-height: 40px;
 }
 
 .contact-ul .info p > img {
     display: inline-block;
-    margin-left: 20px;
+    margin-left: 45px;
     vertical-align: middle;
 }
 
@@ -65,13 +64,14 @@
 }
 
 .input-group > * {
-    margin-left: 46px;
+    margin-left: 55px;
 }
 
 .input-group label {
     display: block;
     font-weight: bold;
     line-height: 30px;
+    margin-top: 10px;
 }
 
 .input-group input, .input-group textarea {
@@ -96,6 +96,7 @@
 }
 .code a {
     color: black;
+    cursor: pointer;
 }
 
 .btn-group {
