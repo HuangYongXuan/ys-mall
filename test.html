@@ -21,44 +21,48 @@
 </div>
 
 <script>
-    var div = null;
-    var isMove = false;
-    var startX = 0;
-    var startY = 0;
-    (function () {
-        document.addEventListener('DOMContentLoaded', onLoad);
+	var div = null;
+	var isMove = false;
+	var startX = 0;
+	var startY = 0;
+	(function () {
+		document.addEventListener('DOMContentLoaded', onLoad);
 	})();
 
-    function onLoad () {
-        div = document.getElementsByClassName('drafting')[0];
-        div.onmousedown = function (e) {
+	function onLoad () {
+		div = document.getElementsByClassName('drafting')[0];
+		div.onmousedown = function (e) {
 			isMove = true;
-			startX = e.clientX  - div.offsetLeft;
+			startX = e.clientX - div.offsetLeft;
 			startY = e.clientY - div.offsetTop;
-			div.style.cursor = '-webkit-grabbing'
+			div.style.cursor = '-webkit-grabbing';
 		};
 		div.onmousemove = function (e) {
 			if (isMove === false) return;
 			if (div.offsetTop >= 0) {
 				div.style.top = (e.clientY - startX) + 'px';
-            } else  {
+			} else {
 				div.style.top = '0px';
-            }
+			}
 
 			if (div.offsetLeft >= 0) {
 				div.style.left = (e.clientX - startX) + 'px';
-			} else  {
+			} else {
 				div.style.left = '0px';
 			}
 			div.style.left = (e.clientX - startX) + 'px';
 		};
+		div.addEventListener('mouseup', touchEnd);
+		div.addEventListener('mouseout', touchEnd);
+	}
 
-		div.onmouseup = function () {
-			isMove = false;
-			startX = 0;
-			startY = 0;
-			div.style.cursor = '-webkit-grab'
-		}
+	function touchEnd (e) {
+		if (isMove === false) return;
+		isMove = false;
+		startX = 0;
+		startY = 0;
+		div.style.cursor = '-webkit-grab';
+		console.log('touchEnd');
 	}
 </script>
 </body>
